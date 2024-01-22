@@ -1,5 +1,4 @@
 //MODULE maze
-
 pub mod builder;
 pub mod solver;
 
@@ -11,6 +10,12 @@ pub struct MazeStruct{
     pub cells: Vec<Cell>,
 }
 
+impl MazeStruct {
+    pub fn get_area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 //Holds the data for each cell
 pub struct Cell {
     pub x: u32,
@@ -18,7 +23,7 @@ pub struct Cell {
     pub is_wall: bool,
 }
 
-//functions
+//Creates an empty maze with the given width and height
 pub fn create_empty_maze(width: u32, height: u32) -> MazeStruct {
     let mut cells: Vec<Cell> = Vec::new();
     for x in 0..width {
@@ -38,3 +43,7 @@ pub fn create_empty_maze(width: u32, height: u32) -> MazeStruct {
         cells,
     }
 }
+
+
+
+
